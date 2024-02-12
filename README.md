@@ -29,7 +29,7 @@ To use this project, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/theodorostaloumtzis/MonteCarlo-Intergration-Approximation
    ```
 
 2. Navigate to the project directory:
