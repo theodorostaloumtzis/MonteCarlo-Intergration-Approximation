@@ -9,7 +9,7 @@ def find_points(N, function, x_lims, y_lims):
     for i in range(N):
         x = np.random.uniform(x_lims[0], x_lims[1])
         y = np.random.uniform(y_lims[0], y_lims[1])
-        fx = function(x)
+        fx = abs(function(x))
         if y < fx:
             points_below[i, 0] = x
             points_below[i, 1] = y
@@ -40,7 +40,7 @@ def main():
 
     # Function
     # you can change the function to any function you want
-    function = lambda x: np.cos(2 * x) + 3 * np.sin(4 * x) ** 2
+    function = lambda x: np.cos(2 * x) + 3 * np.sin(4 * x) 
 
     # Number of points
     N = [100, 1_000, 10_000, 100_000, 1_000_000]
@@ -55,7 +55,7 @@ def main():
 
     for n in N:
         montecarlo, above, below = monte_carlo(n, function, x_lims, y_lims)
-        integration = np.trapz(function(np.linspace(x_lims[0], x_lims[1], 10000)),
+        integration = np.trapz(abs(function(np.linspace(x_lims[0], x_lims[1], 10000))),
                                np.linspace(x_lims[0], x_lims[1], 10000))
         error = abs(integration - montecarlo)
         error_percent = error / integration * 100
@@ -74,7 +74,7 @@ def main():
     # Plotting
     plt.figure(1)
     plt.subplot(111)
-    plt.plot(x_vals, function(x_vals), label='f(x)')
+    plt.plot(x_vals, abs(function(x_vals)), label='|f(x)|')
     plt.scatter(above_data_x[0], above_data_y[0], color='red', marker='o', label='Points Above')
     plt.scatter(below_data_x[0], below_data_y[0], color='blue', marker='o', label='Points Below')
     plt.xlim(x_lims)
@@ -87,7 +87,7 @@ def main():
 
     plt.figure(2)
     plt.subplot(111)
-    plt.plot(x_vals, function(x_vals), label='f(x)')
+    plt.plot(x_vals, abs(function(x_vals)), label='|f(x)|')
     plt.scatter(above_data_x[1], above_data_y[1], color='red', marker='o', label='Points Above')
     plt.scatter(below_data_x[1], below_data_y[1], color='blue', marker='o', label='Points Below')
     plt.xlim(x_lims)
@@ -100,7 +100,7 @@ def main():
 
     plt.figure(3)
     plt.subplot(111)
-    plt.plot(x_vals, function(x_vals), label='f(x)')
+    plt.plot(x_vals, abs(function(x_vals)), label='|f(x)|')
     plt.scatter(above_data_x[2], above_data_y[2], color='red', marker='o', label='Points Above')
     plt.scatter(below_data_x[2], below_data_y[2], color='blue', marker='o', label='Points Below')
     plt.xlim(x_lims)
@@ -113,7 +113,7 @@ def main():
 
     plt.figure(4)
     plt.subplot(111)
-    plt.plot(x_vals, function(x_vals), label='f(x)')
+    plt.plot(x_vals, abs(function(x_vals)), label='|f(x)|')
     plt.scatter(above_data_x[3], above_data_y[3], color='red', marker='o', label='Points Above')
     plt.scatter(below_data_x[3], below_data_y[3], color='blue', marker='o', label='Points Below')
     plt.xlim(x_lims)
@@ -126,7 +126,7 @@ def main():
 
     plt.figure(5)
     plt.subplot(111)
-    plt.plot(x_vals, function(x_vals), label='f(x)')
+    plt.plot(x_vals, abs(function(x_vals)), label='|f(x)|')
     plt.scatter(above_data_x[4], above_data_y[4], color='red', marker='o', label='Points Above')
     plt.scatter(below_data_x[4], below_data_y[4], color='blue', marker='o', label='Points Below')
     plt.xlim(x_lims)
