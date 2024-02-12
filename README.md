@@ -8,7 +8,7 @@ The primary goal of this project is to estimate the definite integral of a user-
 
 ## Project Structure
 
-The project consists of a single Python script (`monte_carlo_integration.py`) containing the following key components:
+The project consists of a single Python script (`montecarlo.py`) containing the following key components:
 
 ### 1. `find_points` Function
 
@@ -41,7 +41,7 @@ To use this project, follow these steps:
 3. Run the script:
 
    ```bash
-   python monte_carlo_integration.py
+   python montecarlo.py
    ```
 
    Adjust the parameters in the script, such as the function definition and the range of x and y values, to suit your specific integration needs.
